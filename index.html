@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Energy Work Planner</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+  <h1>Energy Work Planner</h1>
+
+  <div class="section">
+    <label for="energy">How is your energy right now?</label>
+    <select id="energy" tabindex="1">
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+    <p id="energyStatus"></p>
+  </div>
+
+  <!-- Task addition -->
+  <div class="section">
+    <label for="taskInput">Add a task </label>
+    <input type="text" id="taskInput" placeholder="Task description" maxlength="150" tabindex="2"/>
+    <select id="taskEnergy" tabindex="3">
+      <option value="low">Low energy</option>
+      <option value="medium">Medium energy</option>
+      <option value="high">High energy</option>
+    </select>
+
+    <!-- Deadline feature -->
+    <div class="toggle-container" id="deadlineToggle" tabindex="4">
+      <div class="toggle-box" id="toggleBox"><div class="toggle-knob"></div></div>
+      <span class="toggle-label">This task has a deadline</span>
+    </div>
+    <input type="datetime-local" id="deadlineDate" style="display:none;" tabindex="5"/>
+
+    <button id="addTask" tabindex="6">Add Task</button>
+    <p class="error" id="taskError"></p>
+  </div>
+
+
+  <div class="panel-container">
+    <div class="panel">
+      <h3>All Pending Tasks</h3>
+      <ul class="tasks" id="allTaskList"></ul>
+    </div>
+
+    <div class="panel">
+      <h3>Suggested Tasks (by energy)</h3>
+      <p class="explanation">Suggested tasks are based on your current energy. Deadlines always appear at the top.</p>
+      <ul class="tasks" id="energyTaskList"></ul>
+    </div>
+  </div>
+
+</div>
+
+<div id="toastContainer"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
